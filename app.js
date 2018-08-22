@@ -3,9 +3,8 @@
 //Base Packages
 var express     = require("express"),
     app         = express(),
-    bodyParser  = require("body-parser"),
-    $           = require('jquery');
-  
+    bodyParser  = require("body-parser");
+
 app.use(bodyParser.urlencoded({extended: true}));    //Connfigures the usage of app to automatically use Body-Parser as its middleware
 app.use(express.static(__dirname +"/public"));     //Automatically load assets in public folder for use, however remember this needs to be linked in our sheets (usually in our header file)r)
 // app.use(express.static(__dirname + "/styles"));
@@ -18,7 +17,7 @@ app.get("/", function(req, res){
 });
 
 app.get("/home", function(req, res){
-    res.render("home", {$:$});
+    res.render("home");
     //what new in ground search, maybe use the schema I had previously build
 });  
 
@@ -40,7 +39,17 @@ app.get("/blog", function(req, res){
 app.get("/contact", function(req, res){
     res.render("contact");
     //This will also be for employment and maybe job requests just have a thick how this links to above
-});   
+});
+
+app.get("/for-sale", function(req, res){
+    res.render("for-sale");
+}); 
+
+app.get("/login", function(req,res){
+    res.render("login");
+})
+
+// i 
 
 //no partners page, will refactor into 
 
@@ -50,9 +59,7 @@ app.get("/contact", function(req, res){
 
 //refactor login to blog page
 
-app.get("/for-sale", function(req, res){
-    res.render("for-sale");
-}); 
+
 
 
 
