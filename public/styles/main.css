@@ -44,6 +44,37 @@ Tags: responsive, html5 template, landing, business, application, corporate, boo
   opacity: 0.5;
 }
 
+#padding {
+  padding-left: 45%; 
+  text-align: center
+}
+
+.custom-list-class li a {
+  color: #575757;
+  padding: 10px;
+  display: block;
+  -webkit-transition: all 0.5s ease;
+  /*transition: all 0.5s ease;*/
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+
+.custom-list-class li.active > a {
+  color: #0A0C33;
+}
+
+/*inherited Sytling*/
+
+
+#Who-We-Are-Image {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 
 html {
   font-family: sans-serif;
@@ -11955,7 +11986,8 @@ html, body {
 
 .nav-wrap {
   border-bottom: 2px solid #545454;
-  padding-left: 6.5%;
+  padding-left: 12.5%; 
+  /*padding-left: 6.5%;*/
   padding-right: 6.5%;
   display: -webkit-box;
   display: -ms-flexbox;
