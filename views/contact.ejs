@@ -1,12 +1,115 @@
 <% include partials/header %>
 
-<h1>Contact Page</h1>
+  <!-- "CONTACT FORM" goes here -->
+    <section class="content content-gap-top content-gap-bottom top-contact">
+      <div class="container">
+        <div class="content-title">
+          <h2 class="title"><span>We Are Available</span>Drop Us a Line</h2>
+        </div>        
+        <form action="#" method="get" class="row contact-form js-formFill">          
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group group js-form">
+              <label for="name" class="label js-label">Your Name</label>
+              <input type="text" name="name" value="" id="name" class="form-control control js-control" required>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group group js-form">
+              <label for="email" class="label js-label">Your E-mail</label>
+              <input type="email" name="email" value="" id="email" class="form-control control js-control" required>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group group js-form">
+              <label for="phone" class="label js-label">Phone</label>
+              <input type="text" name="phone" value="" id="phone" class="form-control control js-control" required>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group group js-form">
+              <label for="website" class="label js-label">Website</label>
+              <input type="url" name="website" value="" id="website" class="form-control control js-control" required>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="form-group group js-form">
+              <label for="msg" class="label js-label">Message</label>                
+              <textarea name="msg" id="msg" class="form-control control js-control" required></textarea>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <button type="submit" class="btn">Send Us</button>
+          </div>          
+        </form>        
+      </div>
+    </section>
+    <!-- "CONTACT FORM" ends here -->
+    
+    
+    <!-- "CONTACT DETAILS" goes here -->
+    <section class="content content-gap-top content-gap-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 contact-map">
+            <div class="map" id="map">
+                <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJDxOxQFtPc2sRMLCLMlZs1ag&key=<%=GoogleMapAPIKey%>" allowfullscreen>
+                </iframe>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 contact-detail">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="contact-box">
+                  <div class="contact-icon">
+                    <span class="fas fa-map-marker-alt contact-page"></span>
+                  </div>
+                  <h2>Address</h2>
+                  <p>178 Racecourse Road Rutherford, NSW 2320 Australia</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="contact-box">
+                  <div class="contact-icon">
+                    <span class="fas fa-phone contact-page"></span>
+                  </div>
+                  <h2>Phone</h2>
+                  <p><span>Local:</span> <a href="tel: +61 2 4832 3582">+61 2 4832 3582</a></a></p>
+                  <p><span>Mobile:</span> <a href="tel: +61 2 4293 9346">+61 2 4293 9346</a></p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="contact-box">
+                  <div class="contact-icon">
+                    <span class="far fa-envelope contact-page" id="contact-page-envelope"></span>
+                  </div>
+                  <h2>Email address</h2>
+                  <p><a href="mailto:john.lea@groundsearch.com.au">john.lea@groundsearch.com.au</a></p>
+                  <p><a href="http://groundsearchaustralia.com">www.groundsearchaustralia.com</a></p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="contact-box timing">
+                  <div class="contact-icon">
+                    <span class="far fa-clock contact-page"></span>
+                  </div>
+                  <h2>Opening Hours</h2>
+                  <p>Monday  -  Friday</p>
+                  <p><span>9:00   -   17:00</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- "CONTACT DETAILS" ends here -->
 
-
-
-
-<script>
- $('#contact-button').addClass("active"); 
-</script>
-
+  <!--Highlighting of corresponding name in Header-->
+  <script>
+   $('#contact-button').addClass("active"); 
+  </script>
+  <script>
+   $('#sm-contact-button').addClass("active-smaller-header-list"); 
+  </script>
+  
 <% include partials/footer %>

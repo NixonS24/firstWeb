@@ -9,8 +9,11 @@ app.use(bodyParser.urlencoded({extended: true}));    //Connfigures the usage of 
 app.use(express.static(__dirname +"/public"));     //Automatically load assets in public folder for use, however remember this needs to be linked in our sheets (usually in our header file)r)
 // app.use(express.static(__dirname + "/styles"));
 app.set("view engine","ejs");  
+
+//Own Google Cloud Account, potentially replace in the future
+var GoogleMapAPIKey = process.env.APIKEYMAP; //TODO, setup enviroment variable server side. 
     
-    
+
 app.get("/", function(req, res){
     res.redirect("/home");
     //refactor partners into home page or into partials
@@ -37,7 +40,7 @@ app.get("/blog", function(req, res){
 });  
 
 app.get("/contact", function(req, res){
-    res.render("contact");
+    res.render("contact", {GoogleMapAPIKey: GoogleMapAPIKey});
     //This will also be for employment and maybe job requests just have a thick how this links to above
 });
 

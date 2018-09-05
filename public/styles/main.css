@@ -40,6 +40,8 @@ Tags: responsive, html5 template, landing, business, application, corporate, boo
 
 /*User Added Style*/
 /*Changed orange color #f49105 to purple #0A0C33 in hover, + active for the header styline to match logo color scheme*/
+/*also generally through the color scheme*/
+/*Went through and changed #f89202to #0A0C33 (purlpe) which mainly affects contact form but also other things*/
 .fa-bars {
   opacity: 0.5;
 }
@@ -49,7 +51,7 @@ Tags: responsive, html5 template, landing, business, application, corporate, boo
   text-align: center
 }
 
-.custom-list-class li a {
+.custom-header-mobile-list-class li a {
   color: #575757;
   padding: 10px;
   display: block;
@@ -60,9 +62,35 @@ Tags: responsive, html5 template, landing, business, application, corporate, boo
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
   text-align: center;
+  list-style: none;
 }
 
-.custom-list-class li.active > a {
+.custom-header-mobile-list-class > a {
+  color: #0A0C33;
+}
+
+
+.contact-page {
+  color: black;
+  opacity: 0.5;
+}
+
+.hidden-lg-up {
+  margin: auto;
+  padding-right: 6%;
+  text-align: center;
+}
+
+.custom-header-mobile-div-class {
+  text-align: center;
+}
+
+.custom-header-mobile-list-class {
+  list-style: none;
+  /*text-align: center;*/
+}
+
+li.active-smaller-header-list > a {
   color: #0A0C33;
 }
 
@@ -12227,7 +12255,7 @@ html, body {
   text-transform: uppercase;
   color: #fff;
   position: relative;
-  background-color: #f89202;
+  background-color: #0A0C33;
   padding: 25px;
 }
 
@@ -12471,7 +12499,7 @@ html, body {
 }
 
 .search .search-form button:hover {
-  color: #f89202;
+  color: #0A0C33;
 }
 
 .search .search-close {
@@ -12769,7 +12797,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #f89202;
+  background-color: #0A0C33;
   color: #fff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -13057,12 +13085,12 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
   border: none;
   float: right;
-  color: #f89202;
+  color: #0A0C33;
   padding-left: 0;
 }
 
 .sidebar .search form.search-wrap {
-  border-color: #f89202;
+  border-color: #0A0C33;
 }
 
 .sidebar .search form.search-wrap .label {
@@ -13072,7 +13100,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar .search form.search-wrap .js-input {
   width: 80%;
-  border-left-color: #f89202;
+  border-left-color: #0A0C33;
 }
 
 .widget {
@@ -13147,7 +13175,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   left: 0;
   top: -4px;
-  background-color: #f89202;
+  background-color: #0A0C33;
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
@@ -13180,7 +13208,7 @@ h1, h2, h3, h4, h5, h6 {
   top: -100%;
   left: 0;
   opacity: 0;
-  background-color: #f89202;
+  background-color: #0A0C33;
   width: 100%;
   height: 100%;
   color: #fff;
@@ -14317,7 +14345,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .homeblog-box .blog-detail .blog-title a:hover {
-  color: #f89202;
+  color: #0A0C33;
   text-decoration: none;
 }
 
@@ -14491,7 +14519,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gallery-box .gallery-detail h3 a:hover {
-  color: #f89202;
+  color: #0A0C33;
 }
 
 @media (min-width: 576px) {
@@ -15282,7 +15310,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-box a:hover .box-title {
-  color: #f89202;
+  color: #0A0C33;
 }
 
 .project-box .box-image {
@@ -15919,7 +15947,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .blog-header .blog-title a:hover {
-  color: #f89202;
+  color: #0A0C33;
 }
 
 .blog-header .post-by span {
@@ -16064,7 +16092,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .blog-content .testimonial .textbox:after {
   content: '';
-  background-color: #f89202;
+  background-color: #0A0C33;
   position: absolute;
   top: 0;
   left: 0;
@@ -16132,7 +16160,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .leave-comment .group .control:focus {
   background-color: #fff;
-  border-color: #f89202;
+  border-color: #0A0C33;
 }
 
 .leave-comment .group .control.error {
@@ -16275,7 +16303,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .all-comment .blog-comment .comment-detail .reply-btn:hover {
-  background-color: #f89202;
+  background-color: #0A0C33;
 }
 
 @media (min-width: 992px) {
@@ -16309,8 +16337,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pagination .page-link:hover {
-  background-color: #f89202;
-  border-color: #f89202;
+  background-color: #0A0C33;
+  border-color: #0A0C33;
   color: #fff;
 }
 
@@ -16402,7 +16430,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .top-contact .group .control:focus {
   background-color: #fff;
-  border-color: #f89202;
+  border-color: #0A0C33;
 }
 
 .top-contact .group .control.error {
@@ -16415,7 +16443,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-contact .contact-form .btn {
-  background-color: #f89202;
+  background-color: #0B60AF;
   width: 100%;
   padding: 15px 10px 12px;
   font-size: 16px;
@@ -16432,7 +16460,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-contact .contact-form .btn:hover {
-  background-color: #df8302;
+  /*background-color: #df8302;*/
+  background-color: #0A0C33;
 }
 
 .top-contact .contact-form .btn:focus {
@@ -16500,11 +16529,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-detail .contact-box p a:hover {
-  color: #fd9707;
+  color: #0A0C33;
 }
 
 .contact-detail .contact-box.timing p span {
-  color: #fd9707;
+  color: #0A0C33;
   font-size: 16px;
   font-weight: 700;
 }
@@ -16548,7 +16577,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-detail .social ul li a:hover {
-  color: #f89202;
+  color: #0A0C33;
 }
 
 .contact-detail .social p {
