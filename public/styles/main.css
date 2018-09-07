@@ -16423,7 +16423,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 18px;
   color: #737373;
   font-family: "Open Sans", sans-serif;
-  font-weight: 400;
+  /*font-weight: 400;*/
+  font-weight: bold;
   background-color: #fff;
   box-shadow: 2px 2px 4px #e7e8e9;
 }
