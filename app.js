@@ -60,7 +60,7 @@ app.post("/contact", function(req, res){
       to: "sam.nixon@hotmail.com.au",
       from: req.body.email,
       subject: 'Website Contact Email',
-      html: req.body.msg + "<br>" + "PhoneNumber: " + req.body.phone + "Website: " + "<br>" +req.body.website + "<br><br>" + "From: " + req.body.name,
+      html: req.body.msg + "<br>" + "PhoneNumber: " + req.body.phone + "Website: " + "<br>" + req.body.website + "<br><br>" + "From: " + req.body.name,
     };
     console.log(msg);
     sgMail.send(msg);
