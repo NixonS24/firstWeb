@@ -18,7 +18,7 @@ var GoogleMapAPIKey = process.env.APIKEYMAP; //TODO, setup enviroment variable s
 console.log(process.env.APIKEYMAP); //check that enviroment variable is correctly storing APIKEYMAP
 
 //Own SendGrid Account, 100 free per day on free plan + good analytics
-var SendGridAPI = process.env.SENDGRID_API_KEY; //TODO, setupEnviromentVatiable
+var SendGridAPI = (process.env.SENDGRID_API_KEY); //TODO, setupEnviromentVatiable
 console.log(SendGridAPI); //check that enviroment variable is correclty setup
 
 
