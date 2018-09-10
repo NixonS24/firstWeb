@@ -7,7 +7,7 @@ var     express     = require("express"),
 const   sgMail      = require('@sendgrid/mail');
 
 //base declaration
-var receivingEmailAdress = "sam.nixon@hotmail.com.au";
+var receivingEmailAdress = "sam@whaley.money";
 
 
 app.use(bodyParser.urlencoded({extended: true}));    //Connfigures the usage of app to automatically use Body-Parser as its middleware
@@ -54,15 +54,12 @@ app.get("/contact", function(req, res){
     //This will also be for employment and maybe job requests just have a thick how this links to above
 });
 app.post("/contact", function(req, res){
-    console.log(req.body);
-    console.log(receivingEmailAdress);
     const msg = {
-      to: "sam.nixon@hotmail.com.au",
+      to: receivingEmailAdress,
       from: req.body.email,
       subject: 'Website Contact Email',
       html: req.body.msg + "<br>" + "PhoneNumber: " + req.body.phone + "Website: " + "<br>" + req.body.website + "<br><br>" + "From: " + req.body.name,
     };
-    console.log(msg);
     sgMail.send(msg);
     res.redirect("home");
     //This will also be for employment and maybe job requests just have a thick how this links to above
@@ -75,7 +72,7 @@ app.get("/for-sale", function(req, res){
 
 app.get("/login", function(req,res){
     res.render("login");
-})
+});
 
 // i 
 
