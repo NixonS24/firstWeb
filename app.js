@@ -9,6 +9,7 @@ const   sgMail      = require('@sendgrid/mail');
 //base declaration
 var receivingEmailAdress = "sam.nixon@hotmail.com.au";
 
+
 app.use(bodyParser.urlencoded({extended: true}));    //Connfigures the usage of app to automatically use Body-Parser as its middleware
 app.use(express.static(__dirname +"/public"));     //Automatically load assets in public folder for use, however remember this needs to be linked in our sheets (usually in our header file)r)
 app.set("view engine","ejs");  
@@ -20,7 +21,7 @@ console.log(process.env.APIKEYMAP); //check that enviroment variable is correctl
 //Own SendGrid Account, 100 free per day on free plan + good analytics
 var SendGridAPI = (process.env.SENDGRID_API_KEY); //TODO, setupEnviromentVatiable
 console.log(SendGridAPI); //check that enviroment variable is correclty setup
-
+sgMail.setApiKey(SendGridAPI);
 
 
 app.get("/", function(req, res){
@@ -54,7 +55,6 @@ app.get("/contact", function(req, res){
 });
 app.post("/contact", function(req, res){
     console.log(req.body);
-    sgMail.setApiKey(SendGridAPI);
     console.log(receivingEmailAdress);
     const msg = {
       to: "sam.nixon@hotmail.com.au",
