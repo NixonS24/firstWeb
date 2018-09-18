@@ -1,6 +1,53 @@
 <% include partials/header %>
 
-<h1>Blog Button</h1>
+<!-- banner goes here -->
+    <section class="banner">
+      <div class="innerBanner-bg" >
+        <div class="container">
+          <div class="banner-text">            
+            <h1 class="pageTitle">Our Blog</h1>
+            <div class="breadcrumb-wrap">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="home">Home</a></li>
+                <li class="breadcrumb-item active">Blog</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </section>
+<!-- banner ends here -->
+
+<!-- blog starts here-->
+<section class="content content-gap-top content-gap-bottom two-column">
+      <div class="container">
+        <div class="row">
+          <div class="blog-sizing col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">     
+           <% blogs.forEach(function(blog){ %>
+            <div class="blog-row" data-os-animation="fade-in" data-os-animation-delay="1.2s">
+              <div class="featured-img">
+                <a href ="/blog/<%=blog._id %>">
+                  <img src="<%=blog.image%>" alt="Blog Image"  width="300" height="300" class="lazy">
+                </a>
+              </div>
+              <div class="blog-detail">
+                <div class="blog-header">
+                  <h2 class="blog-title"><a href="/blog/<%=blog._id %>"><%= blog.title %></a></h2>
+                  <div class="post-by">
+                    <span>By <%= blog.author %></span><span><%= blog.type %></span><span><%= blog.created.toDateString() %></span>
+                  </div>
+                </div>
+                <p>
+                 <%= blog.body.substring(0,400) %>...
+                </p>
+              </div>
+            </div>
+           <% }); %>
+          </div>
+        </div>
+      </div>
+  </section>
+<!-- blog ends here-->
 
 
 <script>
