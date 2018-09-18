@@ -1,0 +1,122 @@
+<% include partials/header %>
+
+<!-- banner goes here -->
+    <section class="banner">
+      <div class="innerBanner-bg" >
+        <div class="container">
+          <div class="banner-text">            
+            <h1 class="pageTitle">Our Blog</h1>
+            <div class="breadcrumb-wrap">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="home">Home</a></li>
+                <li class="breadcrumb-item active">Blog</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </section>
+<!-- banner ends here -->
+
+    <!-- "BLOG CONTENT" goes here -->
+    <section class="content content-gap-top content-gap-bottom two-column blog-sampleB">
+      <div class="container">
+        <div class="row">
+          <div class="blog-sizing col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
+            <div class="content-area blog-content">
+              <img src="images/blog-image-sample.jpg" alt="Blog Image" width="850" height="400" class="aligncenter">
+              <div class="blog-header">
+                <h2 class="blog-title"><%=blog.title%></h2>
+                <div class="post-by">
+                  <span>By <%= blog.author %></span><span><%= blog.type %></span><span><%= blog.created.toDateString() %></span>
+                </div>
+              </div>
+              <div class="testimonial blockquote">
+                <div class="textbox">
+                  <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </p>
+                </div>
+              </div>
+              <p>
+                  <%= blog.body %>
+              </p>
+              
+            </div>
+            <div class="leave-comment">
+              <h3 class="comment-title">Leave a Comment</h3>
+              <form action="#" method="get" class="row js-formFill">                
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                  <div class="form-group group js-form">
+                    <label for="name" class="js-label label">Your Name</label>
+                    <input type="text" name="name" value="" id="name" class="form-control control js-control" required>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                  <div class="form-group group js-form">
+                    <label for="email" class="js-label label">Your E-mail</label>
+                    <input type="email" name="email" value="" id="email" class="form-control control js-control" required>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                  <div class="form-group group js-form">
+                    <label for="phone" class="js-label label">Phone</label>
+                    <input type="text" name="phone" value="" id="phone" class="form-control control js-control" required>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <div class="form-group group js-form">
+                    <label for="msg" class="js-label label">Your Message</label>
+                    <textarea name="msg" id="msg" class="form-control control js-control" required></textarea>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">                
+                  <button type="submit" class="btn btn-primary">Post Comment</button>
+                </div>
+              </form>
+            </div>
+            <div class="all-comment">
+              <h3 class="comment-title">All Comments</h3>
+              <div class="blog-comment">
+                <div class="featured-img"><img src="images/commenter-image.jpg" alt="Commenter Image" width="70" height="70"></div>
+                <div class="comment-detail">
+                  <h4 class="author">John Doe</h4>
+                  <h5 class="post-by">March 23, 2017 at 7:59 pm</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. </p>
+                  <a href="#" class="reply-btn">Reply</a>
+                </div>
+              </div>
+              <div class="blog-comment">
+                <div class="featured-img"><img src="images/commenter-image.jpg" alt="Commenter Image" width="70" height="70"></div>
+                <div class="comment-detail">
+                  <h4 class="author">John Doe</h4>
+                  <h5 class="post-by">March 23, 2017 at 7:59 pm</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. </p>
+                  <a href="#" class="reply-btn">Reply</a>
+                </div>
+              </div>
+              <div class="blog-comment">
+                <div class="featured-img"><img src="images/commenter-image.jpg" alt="Commenter Image" width="70" height="70"></div>
+                <div class="comment-detail">
+                  <h4 class="author">John Doe</h4>
+                  <h5 class="post-by">March 23, 2017 at 7:59 pm</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. </p>
+                  <a href="#" class="reply-btn">Reply</a>
+                </div>
+              </div>
+              <!-- pagination -->
+              <nav aria-label="Page navigation">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>
+              <!-- pagination -->
+            </div>
+          </div> 
+        </div>
+     </div>
+</section>
+
+
+
+<% include partials/footer %>
