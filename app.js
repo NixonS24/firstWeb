@@ -5,9 +5,13 @@ var     express         = require("express"),
         app             = express(),
         mongoose        = require("mongoose"),
         bodyParser      = require("body-parser"),
-        expressSanitizer= require("express-sanitizer"),
-        Blog            = require("./models/blog");
+        methodOverride  = require('method-override'),
+        expressSanitizer= require("express-sanitizer");
 const   sgMail          = require('@sendgrid/mail');
+
+//Routes
+var     blogRoutes      = require("./routes/blog");
+var     indexRoutes     = require("./routes/index");
 
 // var     GoogleMapAPIKey = require("./googleapi.env");
 //This connects but does not load
@@ -21,6 +25,7 @@ app.use(express.static(__dirname +"/public"));     //Automatically load assets i
 // app.use(express.static(__dirname +"/scripts")); 
 // console.log(__dirname +"/scripts");
 app.set("view engine","ejs"); 
+app.use(methodOverride("_method"));
 app.use(expressSanitizer());
 
 
@@ -35,68 +40,8 @@ console.log(SendGridAPI); //Having trouble storing this locally
 
 
 
+   
 
-app.get("/", function(req, res){
-    res.redirect("/home");
-    //refactor partners into home page or into partials
-});
-
-app.get("/home", function(req, res){
-    res.render("home");
-    //what new in ground search, maybe use the schema I had previously build
-});  
-
-app.get("/about", function(req, res){
-    res.render("about");
-    //does not exist in groundserach
-});   
-
-app.get("/services", function(req, res){
-    res.render("services");
-    //does not exist in groundSearch Australia
-});   
-
-//BLOGS//
-
-//Index Route 
-app.get("/blog", function(req, res){
-    Blog.find({}, function(error, blogs){
-        if (error) {
-            console.log('error');
-        } else {
-            res.render("blog", {blogs:blogs});
-        }
-    });
-    //what new in ground search, maybe use the schema I had previously build
-});  
-
-//New Route
-app.get("/blog/new", function (req, res){
-    res.render("new");
-});
-
-//Create Routes - I need to put protection middleware in here
-app.post("/blog", function(req, res){
-    req.sanitize(req.body.blog.body);
-    Blog.create(req.body.blog, function(error, newBlogPost){
-        if (error){
-            res.render("new");
-        } else {
-            res.redirect("/blog");
-        }
-    });
-});
-
-//Show route
-app.get("/blog/:id", function(req, res){
-    Blog.findById(req.params.id, function(error, foundBlog){
-        if(error){
-            res.redirect("/blog");
-        } else {
-            res.render("show",{blog: foundBlog});
-        }
-    });
-});
 
 app.get("/contact", function(req, res){
     res.render("contact", {GoogleMapAPIKey: GoogleMapAPIKey});
@@ -115,32 +60,11 @@ app.post("/contact", function(req, res){
 });
 
 
-app.get("/for-sale", function(req, res){
-    res.render("for-sale");
-}); 
-
-app.get("/login", function(req,res){
-    res.render("login");
-});
-
-// i 
-
-//no partners page, will refactor into 
-
-// app.get("/partners", function(req, res){
-//     res.send("partner page");
-// });  
-
-//refactor login to blog page
+//Importing modulrised route structure
+app.use(indexRoutes);
+app.use("/blog", blogRoutes);
 
 
-
-
-
-
-
-
-    
 //Console Listening
 app.listen(process.env.PORT,process.env.IP,function(){
     console.log('App is running');

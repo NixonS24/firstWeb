@@ -6,6 +6,7 @@ var blogSchema = new mongoose.Schema({
     title: String,
     type: String,
     image: String,
+    quote: String,
     body: String,
     created: {type: Date, default: Date.now}
 });

@@ -108,6 +108,11 @@ li.active-smaller-header-list > a {
   padding-bottom: 100px;
 }
 
+Change box sizing on body part of blog new & edit
+.body-box-sizing {
+  height: 200px;
+}
+
 
 /*inherited Sytling - from purchased sheet*/
 
