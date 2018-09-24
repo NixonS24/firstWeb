@@ -7,18 +7,6 @@ var router = express.Router();
 var Blog = require("../models/blog");
 
 
-//Index Route 
-router.get("/", function(req, res){
-    Blog.find({}, function(error, blogs){
-        if (error) {
-            console.log('error');
-        } else {
-            blogs.reverse(); //reverse order of the json so most recent is displayed first
-            res.render("blog/index", {blogs:blogs});
-        }
-    });
-    //what new in ground search, maybe use the schema I had previously build
-});  
 
 //New Route
 router.get("/new", function (req, res){
