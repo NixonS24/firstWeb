@@ -19,8 +19,8 @@ var     indexRoutes     = require("./routes/index");
 //base declaration
 var receivingEmailAdress = "sam@whaley.money";
 console.log(process.env.DATABASEURL);
-var databaseUrl = process.env.DATABASEURL || "mongodb://localhost/ground_search_local"
-mongoose.connect(databaseUrl);
+var databaseUrl = process.env.DATABASEURL || "mongodb://localhost/ground_search_local";
+mongoose.connect(databaseUrl, {useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({extended: true}));    //Connfigures the usage of app to automatically use Body-Parser as its middleware
 app.use(express.static(__dirname +"/public"));     //Automatically load assets in public folder for use, however remember this needs to be linked in our sheets (usually in our header file)r)
