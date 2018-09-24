@@ -14766,7 +14766,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .counting-block {
-  background: url(../images/home-project-bg.jpg) no-repeat top center;
+  background: url(../images/home-project-bg.png) no-repeat top center;
   background-size: cover;
   background-attachment: local;
   -webkit-overflow-scrolling: touch;
@@ -14937,8 +14937,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .consult-box .btn {
-  background-color: #f13333;
-  border: 1px solid #f13333;
+  background-color: #0A0C33;
+  border: 1px solid #0A0C33;
   font-family: "Raleway", sans-serif;
   font-weight: 800;
   font-size: 12px;

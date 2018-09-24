@@ -32,7 +32,7 @@ router.post("/", function(req, res){
         if (error){
             res.render("blog/new");
         } else {
-            res.redirect("back");
+            res.redirect("/blog");
         }
     });
 });

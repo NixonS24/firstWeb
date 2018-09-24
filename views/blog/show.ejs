@@ -35,7 +35,7 @@
               <% if(blog.quote) { %>
               <div class="testimonial blockquote">
                 <div class="textbox">
-                  <p><%=blog.quote%></p>
+                  <p><%=blog.quote.substring(0,100)%></p>
                 </div>
               </div>
               <% } %>
