@@ -88,7 +88,7 @@ Tags: responsive, html5 template, landing, business, application, corporate, boo
 
 .custom-header-mobile-list-class {
   list-style: none;
-  /*text-align: center;*/
+  text-align: center;
 }
 
 li.active-smaller-header-list > a {
@@ -14024,7 +14024,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* LATEST NEWS SECTION */
 .proj-background {
-  background: url(../images/home-project-bg.jpg) no-repeat center center;
+  background: url(../images/home-project-bg.png) no-repeat center center;
   background-size: cover;
   background-attachment: local;
   -webkit-overflow-scrolling: touch;
@@ -14056,6 +14056,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .proj-background .btn {
+  background-color: #0A0C33;
+  border: 1px solid #0A0C33;
   font-family: "Raleway", sans-serif;
   font-weight: 800;
   font-size: 12px;
@@ -14088,7 +14090,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s ease;
 }
 
-.proj-background .red-btn:hover {
+.proj-background .purple-btn:hover {
   background: transparent;
 }
 
