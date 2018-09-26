@@ -1,0 +1,43 @@
+<% include ../partials/header %>    
+    
+    
+    <!-- "BLOG CONTENT" goes here -->
+    <section class="content content-gap-top content-gap-bottom two-column blog-sampleB">
+      <div class="container">
+        <div class="row">
+          <div class="blog-sizing col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
+            <div class="content-area blog-content">
+              <img src="<%=forSale.image%>" alt="Blog Image" width="850" height="400" class="aligncenter">
+              <div class="blog-header">
+                <h2 class="blog-title"><%=forSale.title%></h2>
+                <div class="post-by">
+                    <span>By <%= forSale.author %></span><span>Price Range $<%= forSale.price %></span><span><%= forSale.created.toDateString() %></span>
+                    <span><a href="/contact">Make an Offer!</a></span>
+                </div>
+              </div>
+              <p>
+                  <%= forSale.body %>
+              </p>
+            </div>
+                    <!-- Update and Destory Routes starts here -->
+            
+        <a class="btn btn-xs btn-warning" href="/for-sale/<%=forSale._id %>/edit">
+            Edit
+        </a>
+        <form class="delete-form" action="/for-sale/<%=forSale._id%>?_method=DELETE" method="POST">
+        <Button class="btn btn-xs btn-danger">
+            Delete
+        </Button>
+        </form> 
+        
+        <!-- Update and Destory Routes ends here -->
+         </div>
+        </div>
+    </div>
+</section>
+        <!-- "BLOG CONTENT" ends here -->  
+        
+
+        
+        
+<% include ../partials/footer %>

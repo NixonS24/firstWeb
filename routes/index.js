@@ -3,6 +3,7 @@
 var express = require("express");
 var router  = express.Router();
 
+
 router.get("/", function(req, res){
     res.redirect("/home");
     //refactor partners into home page or into partials
@@ -23,9 +24,7 @@ router.get("/services", function(req, res){
     //does not exist in groundSearch Australia
 });
 
-router.get("/for-sale", function(req, res){
-    res.render("for-sale");
-}); 
+
 
 router.get("/login", function(req,res){
     res.render("login");

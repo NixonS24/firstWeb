@@ -75,7 +75,7 @@ router.delete("/:id", function(req, res){
         } else {
             res.redirect("/blog");
         }
-    })
+    });
 });
 
 module.exports = router;

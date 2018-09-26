@@ -1,0 +1,70 @@
+<% include ../partials/header %>
+
+    <!-- banner goes here -->
+        <section class="banner">
+          <div class="innerBanner-bg" style="background-image: url(images/innerpage-banner-bg.jpg);">
+            <div class="container">
+              <div class="banner-text">
+                <h1 class="pageTitle">For-Sale</h1>
+                <div class="breadcrumb-wrap">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active">For-Sale</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- banner ends here -->
+        
+        <!--Connection to New For-Sale Route Starts Here-->
+        <section>
+          <div class="container">
+            <div class="row">
+              <a class="blog-sizing btn btn-success" href="/for-sale/new">Add New For-Sale</a>
+            </div>
+          </div>
+        </section>
+       
+      <!--Connection to For-Sale Route Ends Here-->
+        
+        <!-- for-sale starts here-->
+        <section class="content content-gap-top content-gap-bottom two-column">
+              <div class="container">
+                <div class="row">
+                  <div class="blog-sizing col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">     
+                   <% forSales.forEach(function(forSale){ %>
+                    <div class="blog-row" data-os-animation="fade-in" data-os-animation-delay="1.2s">
+                      <div class="featured-img">
+                        <a href ="/for-sale/<%=forSale._id %>">
+                          <img src="<%=forSale.image%>" alt="Blog Image"  width="300" height="300" class="lazy">
+                        </a>
+                      </div>
+                      <div class="blog-detail">
+                        <div class="blog-header">
+                          <h2 class="blog-title"><a href="/for-sale/<%=forSale._id %>"><%= forSale.title %></a></h2>
+                          <div class="post-by">
+                            <span>By <%= forSale.author %></span><span> Price Range <%= forSale.price %></span><span><%= forSale.created.toDateString() %></span>
+                          </div>
+                        </div>
+                        <p>
+                         <%= forSale.body.substring(0,400) %>...
+                        </p>
+                      </div>
+                    </div>
+                   <% }); %>
+                  </div>
+                </div>
+              </div>
+          </section>
+        <!-- for-sale ends here-->
+
+<script>
+ $('#for-sale-button').addClass("active"); 
+</script>
+<script>
+ $('#sm-for-sale-button').addClass("active-smaller-header-list"); 
+</script>
+
+<% include ../partials/footer %>

@@ -12,6 +12,11 @@ const   sgMail          = require('@sendgrid/mail');
 //Routes
 var     blogRoutes      = require("./routes/blog");
 var     indexRoutes     = require("./routes/index");
+var     forSaleRoutes   = require("./routes/for-sale");
+
+//Models
+var     Blog            = require("./models/blog");     //I actually don't think this needs to be here, but it is nice for everything to be stored in one location
+var     ForSale         = require("./models/for-sale");
 
 // var     GoogleMapAPIKey = require("./googleapi.env");
 //This connects but does not load
@@ -30,6 +35,9 @@ app.set("view engine","ejs");
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
 
+//Depreciaiton warning "colleciton.findAndModigy is deprecated" - stops the warning
+mongoose.set('useFindAndModify', false);
+
 
 //Own Google Cloud Account, potentially replace in the future
 var GoogleMapAPIKey = process.env.APIKEYMAP; // Enviroment Variable for deployment version setup and working
@@ -39,10 +47,6 @@ console.log(GoogleMapAPIKey); //Having trouble storing this locally.
 var SendGridAPI = (process.env.SENDGRID_API_KEY); //Enviroment Variable for deployment version setup and working
 sgMail.setApiKey(SendGridAPI);
 console.log(SendGridAPI); //Having trouble storing this locally
-
-
-
-   
 
 
 app.get("/contact", function(req, res){
@@ -65,6 +69,7 @@ app.post("/contact", function(req, res){
 //Importing modulrised route structure
 app.use(indexRoutes);
 app.use("/blog", blogRoutes);
+app.use("/for-sale", forSaleRoutes);
 
 
 //Console Listening
