@@ -6,18 +6,21 @@ var     express         = require("express"),
         mongoose        = require("mongoose"),
         bodyParser      = require("body-parser"),
         methodOverride  = require('method-override'),
-        expressSanitizer= require("express-sanitizer");
+        expressSanitizer= require("express-sanitizer"),
+        passport        = require("passport"),
+        LocalStrategy   = require("passport-local");
 const   sgMail          = require('@sendgrid/mail');
 
 //Routes
 var     blogRoutes      = require("./routes/blog");
 var     indexRoutes     = require("./routes/index");
 var     forSaleRoutes   = require("./routes/for-sale");
+var     authRoutes      = require("./routes/auth");
 
 //Models
 var     Blog            = require("./models/blog");     //I actually don't think this needs to be here, but it is nice for everything to be stored in one location
 var     ForSale         = require("./models/for-sale");
-
+var     User            = require("./models/user");
 // var     GoogleMapAPIKey = require("./googleapi.env");
 //This connects but does not load
 
@@ -38,6 +41,19 @@ app.use(expressSanitizer());
 //Depreciaiton warning "colleciton.findAndModigy is deprecated" - stops the warning
 mongoose.set('useFindAndModify', false);
 
+//Authentication logic
+app.use(require('express-session')({
+    secret: "This is usually a string of intelligiable code asdfakjsdfwaieor",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
 //Own Google Cloud Account, potentially replace in the future
 var GoogleMapAPIKey = process.env.APIKEYMAP; // Enviroment Variable for deployment version setup and working
@@ -47,6 +63,14 @@ console.log(GoogleMapAPIKey); //Having trouble storing this locally.
 var SendGridAPI = (process.env.SENDGRID_API_KEY); //Enviroment Variable for deployment version setup and working
 sgMail.setApiKey(SendGridAPI);
 console.log(SendGridAPI); //Having trouble storing this locally
+
+//Enable the contents to be accessed in all pages
+app.use(function(req, res, next) {
+    //res.locals.error = req.flash("error");
+    //res.locals.success = req.flash("success");
+    res.locals.currentUser = req.user;
+    next(); //This allows the code to execute after our middlware
+});
 
 
 app.get("/contact", function(req, res){
@@ -66,10 +90,15 @@ app.post("/contact", function(req, res){
 });
 
 
+
+
 //Importing modulrised route structure
 app.use(indexRoutes);
+app.use(authRoutes);
 app.use("/blog", blogRoutes);
 app.use("/for-sale", forSaleRoutes);
+
+
 
 
 //Console Listening

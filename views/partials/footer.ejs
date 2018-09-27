@@ -38,7 +38,12 @@
                         <li><a href="/blog">Blog</a></li>
                         <li><a href="/contact">Contact</a></li>
                         <li><a href="/for-sale">For-Sale</a></li>
-                        <li><a href="login">Login</a></li>
+                        <% if(!currentUser) { %>
+                            <li><a href='/login'>Login</a></li>
+                        <% } else { %>
+                            <li><a href="#"> Signed in as <%=currentUser.username%> </a></li>
+                            <li><a href='/logout'>Logout</a></li>
+                      <% } %>
                   </ul>
                 </div>
               </div>

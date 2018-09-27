@@ -6,6 +6,10 @@ var router  = express.Router();
 //Models
 var ForSale = require("../models/for-sale");
 
+//Middelware
+var middleware = require("../middleware");
+
+
 
 //For Sale Routes 
 
@@ -22,12 +26,12 @@ router.get("/", function(req, res){
 }); 
 
 //New
-router.get("/new", function(req, res){
+router.get("/new", middleware.isLoggedIn, function(req, res){
     res.render("for-sale/new");
 });
 
 //create
-router.post("/", function(req, res){
+router.post("/", middleware.isLoggedIn, function(req, res){
     req.sanitize(req.body.forSale.body);
     ForSale.create(req.body.forSale, function(error, newForSale){
         if (error) {
@@ -51,14 +55,14 @@ router.get("/:id", function(req, res){
 });
 
 //Edit
-router.get("/:id/edit", function(req, res){
+router.get("/:id/edit", middleware.isLoggedIn, function(req, res){
     ForSale.findById(req.params.id, function(error, foundForSale){
         res.render("for-sale/edit", {forSale: foundForSale});
     });
 });
 
 //Update
-router.put("/:id", function(req, res){
+router.put("/:id", middleware.isLoggedIn, function(req, res){
     ForSale.findByIdAndUpdate(req.params.id, req.body.forSale, function(error, updateForSale){
         if (error) {
             res.redirect('back');
@@ -69,7 +73,7 @@ router.put("/:id", function(req, res){
 });
 
 //Destory
-router.delete("/:id", function(req, res){
+router.delete("/:id", middleware.isLoggedIn, function(req, res){
     ForSale.findByIdAndRemove(req.params.id, function(error){
         if (error) {
             res.redirect('back');

@@ -6,6 +6,9 @@ var router = express.Router();
 //Models
 var Blog = require("../models/blog");
 
+//Middelware
+var middleware = require("../middleware");
+
 
 //Index Route 
 router.get("/", function(req, res){
@@ -21,12 +24,12 @@ router.get("/", function(req, res){
 });  
 
 //New Route
-router.get("/new", function (req, res){
+router.get("/new", middleware.isLoggedIn, function (req, res){
     res.render("blog/new");
 });
 
 //Create Routes - I need to put protection middleware in here
-router.post("/", function(req, res){
+router.post("/", middleware.isLoggedIn, function(req, res){
     req.sanitize(req.body.blog.body);
     Blog.create(req.body.blog, function(error, newBlogPost){
         if (error){
@@ -50,14 +53,14 @@ router.get("/:id", function(req, res){
 
 
 //Edit Route
-router.get("/:id/edit", function(req, res){
+router.get("/:id/edit", middleware.isLoggedIn, function(req, res){
     Blog.findById(req.params.id, function(error, foundBlog){
         res.render("blog/edit", {blog: foundBlog});
     });
 });
 
 //Update Route
-router.put("/:id", function(req, res){
+router.put("/:id", middleware.isLoggedIn, function(req, res){
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(error, updatedBlog){
         if (error) {
             res.redirect("back");
@@ -68,7 +71,7 @@ router.put("/:id", function(req, res){
 });
 
 //Destory route
-router.delete("/:id", function(req, res){
+router.delete("/:id", middleware.isLoggedIn, function(req, res){
     Blog.findByIdAndRemove(req.params.id, function(error){
         if (error){
             res.redirect('back');
