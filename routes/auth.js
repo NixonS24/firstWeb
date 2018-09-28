@@ -10,22 +10,22 @@ var User            = require("../models/user");
 var passport        = require("passport");
 
 
-router.get("/register", function(req, res){
-    res.render('auth/register');
-});
+// router.get("/register", function(req, res){
+//     res.render('auth/register');
+// });
 
-router.post("/register", function(req,res){
-    User.register(new User({username:req.body.username}), req.body.password, function(error, user){
-        if(error){
-            console.log(error);
-            res.render('auth/register');
-        } else {
-            passport.authenticate('local')(req, res, function(){
-                res.redirect("home");
-            });
-        }
-    });
-});
+// router.post("/register", function(req,res){
+//     User.register(new User({username:req.body.username}), req.body.password, function(error, user){
+//         if(error){
+//             console.log(error);
+//             res.render('auth/register');
+//         } else {
+//             passport.authenticate('local')(req, res, function(){
+//                 res.redirect("home");
+//             });
+//         }
+//     });
+// });
 
 router.get("/login", function(req, res){
     res.render("auth/login");
