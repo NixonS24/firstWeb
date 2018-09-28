@@ -9,7 +9,7 @@ middlewareObject.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){ 
         return next();
     } 
-    //req.flash("error", "Please Login First"); //Won't be displayed until the next thing we see
+    req.flash("error", "Please Login First"); 
     res.redirect("/login");
 };
 

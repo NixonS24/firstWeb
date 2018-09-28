@@ -18,14 +18,31 @@
     </section>
 <!-- banner ends here -->
 
-<!--Connection to New Blog Route Starts Here-->
-  <section>
+    <!--Flash Mesages starts here-->
     <div class="container">
-      <div class="row">
-        <a class="blog-sizing btn btn-success" href="/blog/new">Add New Blog Piece</a>
-      </div>
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
     </div>
-  </section>
+    <!--Flash Mesages ends here-->
+
+<!--Connection to New Blog Route Starts Here-->
+      <% if(currentUser){ %>
+        <section>
+          <div class="container">
+            <div class="row">
+              <a class="blog-sizing btn btn-success" href="/blog/new">Add New Blog Piece</a>
+            </div>
+          </div>
+        </section>
+        <% } %>
  
 <!--Connection to New Blog Route Ends Here-->
 

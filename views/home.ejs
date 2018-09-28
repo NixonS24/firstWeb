@@ -1,5 +1,20 @@
 <% include partials/header %>
 
+    <!--Flash Mesages starts here-->
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+    <!--Flash Mesages ends here-->
+
         <!-- "WHO WE ARE" block goes here -->
         <section class="content content-who">
           <div class="container">
@@ -12,6 +27,68 @@
           </div>
         </section>
         <!-- "WHO WE ARE" block ends here -->
+        
+        <!-- "OUR SERVICE" block goes here -->
+<section class="content content-ourservice" id="js-service">
+  <div class="container">
+   <div class="content-title">
+    <h2 class="title"><span>how we work</span>list and procedure <br/>of service</h2>            
+  </div>          
+  <div class="row"> 
+    <div class="col-12 col-sm-6 col-md-6 col-lg-6">        
+     <div class="service-box">
+      <a href="#">
+       <span class="feature-img"><img src="images/Civil_Engineering_LG.png" alt="Our Service Feature Image" class="lazy"></span>
+       <div class="box-detail">
+          <span class="box-title">Civil Enginering</span>
+          <span class="box-excerpt">We over 100 years of civil engineering experience in-house all around the world. Groundsearch has the ability to provide expertise across a broad suite of civil engineering services.
+          </span>                  
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-12 col-sm-6 col-md-6 col-lg-6">        
+   <div class="service-box">
+    <a href="#">
+     <span class="feature-img"><img src="images/Equipment_Repair_Lg.png" alt="Our Service Feature Image" class="lazy"></span>
+     <div class="box-detail">
+        <span class="box-title">Equipment Repair</span>
+        <span class="box-excerpt">GroundSearch has an electronics workshop and technical personnel to enable repairs of Century Geophysical equipment in house. We also have the capacity for general repairs on similar equipment. 
+      </span>                  
+      </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-12 col-sm-6 col-md-6 col-lg-6">        
+   <div class="service-box">
+    <a href="#">
+     <span class="feature-img"><img src="images/Mining_Exploration_Lg.png" alt="Our Service Feature Image" class="lazy"></span>
+     <div class="box-detail">
+        <span class="box-title">Exploration Review</span>
+        <span class="box-excerpt">We have the capacity to assist with all stages of mining process. From exploration to site design & planning to closure & reclamation we have a range of experience and tools to help throughout the entire lifecycle.
+      </span>                  
+      </div>
+    </a>
+    </div>
+  </div> 
+  <div class="col-12 col-sm-6 col-md-6 col-lg-6">        
+   <div class="service-box">
+    <a href="#">
+     <span class="feature-img"><img src="images/Logging_Service_Lg.png" alt="Our Service Feature Image" class="lazy"></span>
+     <div class="box-detail">
+        <span class="box-title">Logging Service</span>
+        <span class="box-excerpt">GroundSearch carries an extensive inventory of downhole tools, in particular for coal and CSM logging operations. For example this includes Density, Neutron and Full Waveform Sonic Tools.
+        </span>                  
+      </div>
+    </a>
+    </div>
+  </div>
+  </div>              
+</div>
+</section>
+<!-- "OUR SERVICE" block ends here -->  
+
+
         
       <!-- "NEXT PROJECT" block goes here -->
         <section class="proj-background">

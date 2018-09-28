@@ -7,6 +7,7 @@ var     express         = require("express"),
         bodyParser      = require("body-parser"),
         methodOverride  = require('method-override'),
         expressSanitizer= require("express-sanitizer"),
+        flash           = require("connect-flash"), //needs to be before passport.
         passport        = require("passport"),
         LocalStrategy   = require("passport-local");
 const   sgMail          = require('@sendgrid/mail');
@@ -37,6 +38,7 @@ app.use(express.static(__dirname +"/public"));     //Automatically load assets i
 app.set("view engine","ejs"); 
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
+app.use(flash()); //enable flash
 
 //Depreciaiton warning "colleciton.findAndModigy is deprecated" - stops the warning
 mongoose.set('useFindAndModify', false);
@@ -66,8 +68,8 @@ console.log(SendGridAPI); //Having trouble storing this locally
 
 //Enable the contents to be accessed in all pages
 app.use(function(req, res, next) {
-    //res.locals.error = req.flash("error");
-    //res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     res.locals.currentUser = req.user;
     next(); //This allows the code to execute after our middlware
 });

@@ -18,14 +18,31 @@
         </section>
         <!-- banner ends here -->
         
+            <!--Flash Mesages starts here-->
+              <div class="container">
+                  <% if(error && error.length > 0){ %>
+                      <div class="alert alert-danger" role="alert">
+                          <%= error %>
+                      </div>
+                  <% } %>
+                  <% if(success && success.length > 0){ %>
+                      <div class="alert alert-success" role="alert">
+                          <%= success %>
+                      </div>
+                  <% } %>
+              </div>
+            <!--Flash Mesages ends here-->
+        
         <!--Connection to New For-Sale Route Starts Here-->
-        <section>
-          <div class="container">
-            <div class="row">
-              <a class="blog-sizing btn btn-success" href="/for-sale/new">Add New For-Sale</a>
+         <% if(currentUser){ %>
+          <section>
+            <div class="container">
+              <div class="row">
+                <a class="blog-sizing btn btn-success" href="/for-sale/new">Add New For-Sale</a>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        <% } %>
        
       <!--Connection to For-Sale Route Ends Here-->
         

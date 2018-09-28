@@ -19,18 +19,20 @@
                   <%= forSale.body %>
               </p>
             </div>
-                    <!-- Update and Destory Routes starts here -->
-            
-        <a class="btn btn-xs btn-warning" href="/for-sale/<%=forSale._id %>/edit">
-            Edit
-        </a>
-        <form class="delete-form" action="/for-sale/<%=forSale._id%>?_method=DELETE" method="POST">
-        <Button class="btn btn-xs btn-danger">
-            Delete
-        </Button>
-        </form> 
-        
+      
+      <!-- Update and Destory Routes starts here -->
+        <% if(currentUser){ %>
+          <a class="btn btn-xs btn-warning" href="/for-sale/<%=forSale._id %>/edit">
+              Edit
+          </a>
+          <form class="delete-form" action="/for-sale/<%=forSale._id%>?_method=DELETE" method="POST">
+          <Button class="btn btn-xs btn-danger">
+              Delete
+          </Button>
+          </form> 
+        <% } %>
         <!-- Update and Destory Routes ends here -->
+        
          </div>
         </div>
     </div>
